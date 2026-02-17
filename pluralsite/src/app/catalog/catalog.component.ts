@@ -11,6 +11,9 @@ import { IProduct } from './product.model';
 export class CatalogComponent {
   // the name is plural: "products" and the interface is attached with [] to handle multiple object literals
   products: IProduct[];
+
+  filter: string = '';
+
   constructor() {
     // hardcoded data
     this.products = [
@@ -188,5 +191,9 @@ export class CatalogComponent {
         discount: 0,
       },
     ];
+  }
+
+  getImageUrl(product: IProduct) {
+    return '/assets/images/robot-parts/' + product.imageName;
   }
 }

@@ -1,7 +1,7 @@
 -
 <div class="container">
   <div class="filters">
-    <a class="button">Heads</a>
+    <!-- <a class="button" (click)="">Heads</a> -->
     <a class="button">Arms</a>
     <a class="button">Torsos</a>
     <a class="button">Bases</a>
@@ -15,10 +15,10 @@
     <li class="product-item" *ngFor="let product of products">
       <div class="product">
         <div class="product-details">
-          <img
-            src="{{ '/assets/images/robot-parts/' + product.imageName }}"
-            alt=""
-          />
+          <!-- THIS IS INTERPOLATION: alt="{{product.name}}" -->
+          <!--THIS IS ATTRIBUTE BINDING: [alt]="product.name" (evaluated as expression)-->
+          <!-- attribute binding: can also call functions from the component and back to the template -->
+          <img [src]="getImageUrl(product)" [alt]="product.name" />
           <div class="product-info">
             <div class="name">{{ product.name }}</div>
             <div class="description">{{ product.description }}</div>
