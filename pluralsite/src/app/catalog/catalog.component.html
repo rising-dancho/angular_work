@@ -19,15 +19,16 @@
           <!-- THIS IS INTERPOLATION: alt="{{product.name}}" -->
           <!--THIS IS ATTRIBUTE BINDING: [alt]="product.name" (evaluated as expression)-->
           <!-- attribute binding: can also call functions from the component and back to the template -->
-          <img [src]="getImageUrl(product)" [alt]="product.name" />
+          <!-- SAFE NAVIGATION OPERATOR: just add ? after an instance name -->
+          <img [src]="getImageUrl(product)" [alt]="product?.name" />
           <div class="product-info">
-            <div class="name">{{ product.name }}</div>
-            <div class="description">{{ product.description }}</div>
-            <div class="category">Part Type: {{ product.category }}</div>
+            <div class="name">{{ product?.name }}</div>
+            <div class="description">{{ product?.description }}</div>
+            <div class="category">Part Type: {{ product?.category }}</div>
           </div>
         </div>
         <div class="price">
-          <div>${{ product.price.toFixed(2) }}</div>
+          <div>${{ product?.price?.toFixed(2) }}</div>
           <button class="cta">Buy</button>
         </div>
       </div>

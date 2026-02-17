@@ -11,6 +11,7 @@ import { IProduct } from './product.model';
 export class CatalogComponent {
   // the name is plural: "products" and the interface is attached with [] to handle multiple object literals
   products: IProduct[];
+  // products: any;
 
   filter: string = '';
 
@@ -194,12 +195,14 @@ export class CatalogComponent {
   }
 
   getImageUrl(product: IProduct) {
-    return '/assets/images/robot-parts/' + product.imageName;
+    return '/assets/images/robot-parts/' + product?.imageName;
   }
 
   getFilterProducts() {
     return this.filter === ''
       ? this.products
-      : this.products.filter((product) => product.category === this.filter);
+      : this.products.filter(
+          (product: any) => product.category === this.filter,
+        );
   }
 }
