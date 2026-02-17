@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -14,7 +14,7 @@ import { SiteHeaderComponent } from './site-header/site-header.component';
     SiteHeaderComponent,
   ],
   imports: [BrowserModule],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'en-PH' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
