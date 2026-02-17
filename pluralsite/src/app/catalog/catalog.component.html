@@ -8,11 +8,17 @@
     <a class="button">All</a>
   </div>
 
+  <!-- Built it Angular Directives: 
+  ngClass="" *ngIf="" *ngFor="" 
+  -->
   <ul class="products">
-    <li class="product-item">
+    <li class="product-item" *ngFor="let product of products">
       <div class="product">
         <div class="product-details">
-          <img src="{{'/assets/images/robot-parts/' + product.imageName}}" alt="" />
+          <img
+            src="{{ '/assets/images/robot-parts/' + product.imageName }}"
+            alt=""
+          />
           <div class="product-info">
             <div class="name">{{ product.name }}</div>
             <div class="description">{{ product.description }}</div>
