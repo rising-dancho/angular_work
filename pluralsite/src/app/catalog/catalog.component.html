@@ -28,7 +28,13 @@
           </div>
         </div>
         <div class="price">
-          <div>${{ product?.price?.toFixed(2) }}</div>
+          <!-- * structural directive if it modifies the structure of the html document by adding or removing content-->
+          <div *ngIf="product.discount === 0">
+            ${{ product?.price?.toFixed(2) }}
+          </div>
+          <div class="discount" *ngIf="product.discount > 0">
+            ${{ (product.price * (1 - product.discount)).toFixed(2) }}
+          </div>
           <button class="cta">Buy</button>
         </div>
       </div>
