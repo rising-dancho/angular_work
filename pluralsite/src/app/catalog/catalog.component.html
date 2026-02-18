@@ -34,7 +34,13 @@
           <!-- CALL A FUNCTION: <div [ngClass]="getDiscountedClasses(product)"> -->
           <!-- COMBINING BOTH html and dynamic ngClass IS ALLOWED:
           <div class="bold" [ngClass]="getDiscountedClasses(product)"> -->
-          <div [ngClass]="getDiscountedClasses(product)">
+          <!-- STYLE BINDING OPTION #1: [style.color]="product.discount > 0 ? 'red' : ''" -->
+          <!-- ngStyle OPTION #2: [ngStyle]="{ color: product.discount > 0 ? 'red' : '' }" -->
+          <!-- style="font-weight: bolder" -->
+          <div
+            [ngStyle]="{ color: product.discount > 0 ? 'red' : '' }"
+            [ngClass]="getDiscountedClasses(product)"
+          >
             {{ product?.price | currency: "PHP" : "symbol" }}
           </div>
           <div class="discount" *ngIf="product.discount > 0">
