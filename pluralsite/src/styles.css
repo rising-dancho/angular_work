@@ -1,3 +1,10 @@
+.red {
+  color: #e33e31;
+}
+
+.bold {
+  font-weight: bold;
+}
 body {
   background-color: #fff;
   font-family: Arial, Helvetica, sans-serif;

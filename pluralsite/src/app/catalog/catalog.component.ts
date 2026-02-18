@@ -205,4 +205,13 @@ export class CatalogComponent {
           (product: any) => product.category === this.filter,
         );
   }
+
+  getDiscountedClasses(product: IProduct) {
+    if (product.discount > 0) {
+      // return ['strikethrough', bold]; // multiple classes
+      return ['strikethrough'];
+    } else {
+      return [];
+    }
+  }
 }
