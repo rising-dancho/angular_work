@@ -13,45 +13,8 @@
   ngClass="" *ngIf="" *ngFor="" 
   -->
   <ul class="products">
-    <li class="product-item" *ngFor="let product of getFilterProducts()">
-      <div class="product">
-        <div class="product-details">
-          <!-- THIS IS INTERPOLATION: alt="{{product.name}}" -->
-          <!--THIS IS ATTRIBUTE BINDING: [alt]="product.name" (evaluated as expression)-->
-          <!-- attribute binding: can also call functions from the component and back to the template -->
-          <!-- SAFE NAVIGATION OPERATOR: just add ? after an instance name -->
-          <img [src]="getImageUrl(product)" [alt]="product?.name" />
-          <div class="product-info">
-            <div class="name red">{{ product?.name }}</div>
-            <div class="description">{{ product?.description }}</div>
-            <div class="category">Part Type: {{ product?.category }}</div>
-          </div>
-        </div>
-        <div class="price">
-          <!-- * structural directive if it modifies the structure of the html document by adding or removing content-->
-          <!-- (WORDY) Class attribute binding: <div [class.strikethrough]="product.discount !== 0"> -->
-          <!-- (PASS IN OBJECT with Property name of the css class. CAN BE MULTIPLE) INLINE: <div [ngClass]="{strikethrough: product.discount !== 0}">  -->
-          <!-- CALL A FUNCTION: <div [ngClass]="getDiscountedClasses(product)"> -->
-          <!-- COMBINING BOTH html and dynamic ngClass IS ALLOWED:
-          <div class="bold" [ngClass]="getDiscountedClasses(product)"> -->
-          <!-- STYLE BINDING OPTION #1: [style.color]="product.discount > 0 ? 'red' : ''" -->
-          <!-- ngStyle OPTION #2: [ngStyle]="{ color: product.discount > 0 ? 'red' : '' }" -->
-          <!-- style="font-weight: bolder" -->
-          <div
-            [ngStyle]="{ color: product.discount > 0 ? 'red' : '' }"
-            [ngClass]="getDiscountedClasses(product)"
-          >
-            {{ product?.price | currency: "PHP" : "symbol" }}
-          </div>
-          <div class="discount" *ngIf="product.discount > 0">
-            {{
-              product.price * (1 - product.discount)
-                | currency: "PHP" : "symbol"
-            }}
-          </div>
-          <button class="cta">Buy</button>
-        </div>
-      </div>
+    <li class="product-item" *ngFor="let product of getFilteredProducts()">
+      <bot-product-details [productDetails]="product"></bot-product-details>
     </li>
   </ul>
 </div>
