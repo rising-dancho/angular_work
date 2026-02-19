@@ -2,7 +2,7 @@
 <div class="container">
   <div class="filters">
     <!-- EVENT BINDING -->
-    <a class="button bold" (click)="filter = 'Heads'">Heads</a>
+    <a class="button" (click)="filter = 'Heads'">Heads</a>
     <a class="button" (click)="filter = 'Arms'">Arms</a>
     <a class="button" (click)="filter = 'Torsos'">Torsos</a>
     <a class="button" (click)="filter = 'Bases'">Bases</a>
@@ -14,7 +14,12 @@
   -->
   <ul class="products">
     <li class="product-item" *ngFor="let product of getFilteredProducts()">
-      <bot-product-details [productDetails]="product"></bot-product-details>
-    </li>
+      <!-- buy event is the only event in the child component right now : what do i want the buy event to trigger-->
+      <bot-product-details
+        [product]="product"
+        (buy)="addToCart(product)"
+      ></bot-product-details>
+    </li>                                                   
   </ul>
 </div>
+

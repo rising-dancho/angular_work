@@ -4,11 +4,11 @@
     <!--THIS IS ATTRIBUTE BINDING: [alt]="product.name" (evaluated as expression)-->
     <!-- attribute binding: can also call functions from the component and back to the template -->
     <!-- SAFE NAVIGATION OPERATOR: just add ? after an instance name -->
-    <img [src]="getImageUrl(productDetails)" [alt]="productDetails?.name" />
+    <img [src]="getImageUrl(product)" [alt]="product.name" />
     <div class="product-info">
-      <div class="name red">{{ productDetails?.name }}</div>
-      <div class="description">{{ productDetails?.description }}</div>
-      <div class="category">Part Type: {{ productDetails?.category }}</div>
+      <div class="name red">{{ product.name }}</div>
+      <div class="description">{{ product.description }}</div>
+      <div class="category">Part Type: {{ product.category }}</div>
     </div>
   </div>
   <div class="price">
@@ -21,18 +21,16 @@
     <!-- STYLE BINDING OPTION #1: [style.color]="product.discount > 0 ? 'red' : ''" -->
     <!-- ngStyle OPTION #2: [ngStyle]="{ color: product.discount > 0 ? 'red' : '' }" -->
     <!-- style="font-weight: bolder" -->
+    <div [ngClass]="getDiscountedClasses(product)">
+      {{ product.price | currency: "PHP" : "symbol" }}
+    </div>
     <div
-      [ngStyle]="{ color: productDetails.discount > 0 ? 'red' : '' }"
-      [ngClass]="getDiscountedClasses(productDetails)"
+      [ngStyle]="{ color: product.discount > 0 ? '#0078B9' : '' }"
+      class="discount"
+      *ngIf="product.discount > 0"
     >
-      {{ productDetails?.price | currency: "PHP" : "symbol" }}
+      {{ product.price * (1 - product.discount) | currency: "PHP" : "symbol" }}
     </div>
-    <div class="discount" *ngIf="productDetails.discount > 0">
-      {{
-        productDetails.price * (1 - productDetails.discount)
-          | currency: "PHP" : "symbol"
-      }}
-    </div>
-    <button class="cta" (click)="addToCart(productDetails)">Buy</button>
+    <button class="cta" (click)="buyButtonClicked()">Buy</button>
   </div>
 </div>

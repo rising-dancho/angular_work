@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { IProduct } from '../catalog/product.model';
 
 @Component({
@@ -7,26 +7,29 @@ import { IProduct } from '../catalog/product.model';
   styleUrls: ['./product-details.component.css'],
 })
 export class ProductDetailsComponent {
-  @Input() productDetails!: IProduct;
-  cart: IProduct[] = [];
+  // parent to child
+  @Input() product!: IProduct;
+  // event that the child component would raise
+  @Output() buy = new EventEmitter();
 
-  constructor() {}
-
-  getImageUrl(productDetails: IProduct) {
-    return '/assets/images/robot-parts/' + productDetails?.imageName;
+  getImageUrl(product: IProduct) {
+    return '/assets/images/robot-parts/' + product?.imageName;
   }
 
-  addToCart(productDetails: IProduct) {
-    this.cart.push(productDetails);
-    console.log(`product ${productDetails.name} added to cart`);
-  }
-
-  getDiscountedClasses(productDetails: IProduct) {
-    if (productDetails.discount > 0) {
+  getDiscountedClasses(product: IProduct) {
+    if (product.discount > 0) {
       // return ['strikethrough', bold]; // multiple classes
       return ['strikethrough'];
     } else {
-      return [];
+      return [''];
     }
   }
+
+  buyButtonClicked() {
+    // raise a new buy event
+    this.buy.emit(); // this is how we trigger the event
+  }
 }
+
+// careful with  EventEmitter sometimes wrong import happens
+// https://chatgpt.com/share/699655fa-2e08-8000-80b8-5b68684cc0e7
