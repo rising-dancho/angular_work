@@ -9,10 +9,14 @@ import { IProduct } from './catalog/product.model';
 export class CartService {
   private cart: IProduct[] = [];
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   add(product: IProduct) {
     this.cart.push(product);
-    console.log(`product ${product.name} added to cart`);
+
+    // this javascript object this.cart is auto converted to JSON
+    this.http.post('/api/cart', this.cart).subscribe(() => {
+      console.log(`product ${product.name} added to cart`);
+    });
   }
 }
