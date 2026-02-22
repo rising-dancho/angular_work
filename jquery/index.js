@@ -63,3 +63,34 @@ $(document).keypress(function (event) {
   str += event.key.toString();
   $("h1").text(str);
 });
+
+// more flexible way to add event listeners
+// list of events that can be used https://www.w3schools.com/jsref/dom_obj_event.asp
+let lastCall = 0;
+
+// throttle: run dingDong() only once per 10 seconds
+// https://chatgpt.com/share/699b274a-039c-8000-ae56-c8069cd5c9c3
+$("img").on("mouseover", function () {
+  const now = Date.now();
+
+  if (now - lastCall >= 10000) {
+    lastCall = now;
+    dingDong();
+  }
+});
+
+function dingDong() {
+  alert("ohh!! you touch my tralala");
+}
+
+$("img").on("click", function () {
+  alert("ahh!! my ding ding dong");
+});
+
+// dynamically add elements with jquery
+$("p#test").on("click", function () {
+  $("h1").before("<p>Before</p>");
+  $("h1").after("<p>After</p>");
+  $("h1").prepend("<span>Prepend - </span>");
+  $("h1").append("<span> - Append</span>");
+});
