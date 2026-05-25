@@ -3,8 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Data;
 
+// derive from another class
 public class AppDbContext(DbContextOptions options) : DbContext(options)
-{
-    // represents the table name
+{   
+    // Users represent the table name inside the database
     public DbSet<AppUser> Users { get; set; }
 }

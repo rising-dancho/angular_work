@@ -7,13 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddDbContext<AppDbContext>(opt =>
 {
-    // Use Sqlite as the database provider
     opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-app.MapControllers();
+app.MapControllers(); // middleware
 
 app.Run();
