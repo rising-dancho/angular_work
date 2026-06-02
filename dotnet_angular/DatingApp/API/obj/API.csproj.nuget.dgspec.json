@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\adfinem\\Documents\\Github\\angular_work\\dotnet_angular\\DatingApp\\API\\API.csproj": {}
+    "C:\\Users\\EI0009E\\Documents\\Training\\angular_work\\dotnet_angular\\DatingApp\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\adfinem\\Documents\\Github\\angular_work\\dotnet_angular\\DatingApp\\API\\API.csproj": {
+    "C:\\Users\\EI0009E\\Documents\\Training\\angular_work\\dotnet_angular\\DatingApp\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\adfinem\\Documents\\Github\\angular_work\\dotnet_angular\\DatingApp\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\EI0009E\\Documents\\Training\\angular_work\\dotnet_angular\\DatingApp\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\adfinem\\Documents\\Github\\angular_work\\dotnet_angular\\DatingApp\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\adfinem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\adfinem\\Documents\\Github\\angular_work\\dotnet_angular\\DatingApp\\API\\obj\\",
+        "projectPath": "C:\\Users\\EI0009E\\Documents\\Training\\angular_work\\dotnet_angular\\DatingApp\\API\\API.csproj",
+        "packagesPath": "C:\\Users\\EI0009E\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\EI0009E\\Documents\\Training\\angular_work\\dotnet_angular\\DatingApp\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\adfinem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\EI0009E\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,11 +27,11 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net10.0": {
-            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {}
           }
@@ -45,11 +46,10 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.300"
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
@@ -84,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
