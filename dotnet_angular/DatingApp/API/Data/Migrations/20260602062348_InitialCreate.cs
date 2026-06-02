@@ -14,10 +14,9 @@ namespace API.Data.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "TEXT", nullable: false),
-                    UserName = table.Column<string>(type: "TEXT", nullable: false),
-                    PasswordHash = table.Column<byte[]>(type: "BLOB", nullable: false),
-                    PasswordSalt = table.Column<byte[]>(type: "BLOB", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    UserName = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {

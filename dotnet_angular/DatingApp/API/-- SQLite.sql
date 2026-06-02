@@ -1,15 +1,16 @@
 -- SQLite
-INSERT INTO Users (Id, DisplayName, Email)
-VALUES ('adfinem-id', 'adfinem', 'adfinem@gmail.com');
+INSERT INTO Users (Id, UserName)
+VALUES (1, 'adfinem');
 
 -- SQLite
-INSERT INTO Users (Id, DisplayName, Email)
-VALUES ('erwinsmith-id', 'erwinsmith', 'erwinsmith@gmail.com');
+INSERT INTO Users (Id, UserName)
+VALUES (2, 'erwinsmith');
 
 -- SQLite
-INSERT INTO Users (Id, DisplayName, Email)
-VALUES ('leviackerman-id', 'leviackerman', 'leviackerman@gmail.com');
+INSERT INTO Users (Id, UserName)
+VALUES (3, 'leviackerman');
 
 -- SQLite
-INSERT INTO Users (Id, DisplayName, Email)
-VALUES ('erenyeager-id', 'erenyeager', 'erenyeager@gmail.com');
+INSERT INTO Users (Id, UserName)
+VALUES (4, 'erenyeager');
+
