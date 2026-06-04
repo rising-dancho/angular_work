@@ -293,3 +293,6 @@ C:\Users\EI0009E\Documents\Training\angular_work\dotnet_angular\DatingApp\API\bi
 C:\Users\EI0009E\Documents\Training\angular_work\dotnet_angular\DatingApp\API\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
 C:\Users\EI0009E\Documents\Training\angular_work\dotnet_angular\DatingApp\API\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\EI0009E\Documents\Training\angular_work\dotnet_angular\DatingApp\API\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\EI0009E\Documents\Training\angular_work\dotnet_angular\DatingApp\API\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\EI0009E\Documents\Training\angular_work\dotnet_angular\DatingApp\API\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\EI0009E\Documents\Training\angular_work\dotnet_angular\DatingApp\API\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
