@@ -2,14 +2,14 @@
     <div class="container">
         <a class="navbar-brand" href="#">Dating App</a>
 
-        <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="loggedIn">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="accountService.currentUser$ | async">
             <li class="nav-item"> <a class="nav-link">Matches</a> </li>
             <li class="nav-item"> <a class="nav-link">List</a> </li>
             <li class="nav-item"> <a class="nav-link">Messages</a> </li>
             <!-- <li class="nav-item"> <a class="nav-link" logout()>Logout</a> </li> -->
         </ul>
 
-        <div class="dropdown" dropdown *ngIf="loggedIn">
+        <div class="dropdown" dropdown *ngIf="accountService.currentUser$ | async">
             <!-- <a class="dropdown-toggle text-light" dropdownToggle>
                 Welcome user
             </a>
@@ -19,10 +19,10 @@
                 <a class="dropdown-item" (click)="logout()">Logout</a>
             </div> -->
 
-            <div class="btn-group" dropdown *ngIf="loggedIn">
-                <button type="button" class="btn btn-warning">Welcome user</button>
+            <div class="btn-group" dropdown *ngIf="accountService.currentUser$ | async">
+                <a type="button" class="btn btn-default text-white">Welcome user</a>
                 <button id="button-split" type="button" dropdownToggle
-                    class="btn btn-warning dropdown-toggle dropdown-toggle-split" aria-controls="dropdown-split">
+                    class="btn btn-default text-white dropdown-toggle dropdown-toggle-split" aria-controls="dropdown-split">
                     <span class="caret"></span>
                 
                 </button>
@@ -36,7 +36,7 @@
             </div>
         </div>
 
-        <form #loginForm="ngForm" (ngSubmit)="login()" class="d-flex" autocomplete="off" *ngIf="!loggedIn">
+        <form #loginForm="ngForm" (ngSubmit)="login()" class="d-flex" autocomplete="off" *ngIf="!(accountService.currentUser$ | async)">
             <input name="username" [(ngModel)]="model.username" class="form-control me-2" type="text"
                 placeholder="Username">
             <input name="password" [(ngModel)]="model.password" class="form-control me-2" type="text"
