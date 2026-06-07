@@ -1,7 +1,7 @@
 <form #registerFor="ngForm" (ngSubmit)="register()" autocomplete="off">
     <h2 class="text-center text-primary">Sign up</h2>
     <hr>
-        <!-- <div class="mb-3">
+    <!-- <div class="mb-3">
             <label class="pb-2">Who is your favorite user?</label>
             <select class="form-select">
                 <option *ngFor="let user of usersFromHomeComponent" [value]="user.userName">
@@ -17,7 +17,7 @@
             type="password">
     </div>
     <div class="text-center">
-        <button (click)="register()" class="btn btn-success btn-lg me-2" type="submit">Register</button>
+        <button class="btn btn-success btn-lg me-2" type="submit">Register</button>
         <button (click)="cancel()" class="btn btn-default btn-lg" type="button">Cancel</button>
     </div>
 

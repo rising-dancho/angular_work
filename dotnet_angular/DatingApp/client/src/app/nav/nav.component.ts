@@ -16,7 +16,8 @@ export class NavComponent {
 
   constructor(public accountService: AccountService, private router: Router, private toastr: ToastrService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
 
   // getCurrentUser() {
   //   var self = this;
@@ -32,7 +33,7 @@ export class NavComponent {
     this.accountService.login(this.model).subscribe({
       next: () => {
         this.router.navigateByUrl("/members");
-        this.toastr.success("Welcome back!","Login Success!");
+        this.toastr.success("Welcome back!", "Login Success!");
       },
       error: (error: any) => this.toastr.error(error.error, error.name),
     });
