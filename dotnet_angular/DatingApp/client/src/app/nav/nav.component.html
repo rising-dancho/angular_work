@@ -24,7 +24,7 @@
             </div> -->
 
             <div class="btn-group" dropdown *ngIf="(accountService.currentUser$ | async) as user">
-                <a type="button" class="btn btn-default text-white">Welcome {{user.userName}}</a>
+                <a type="button" class="btn btn-default text-white">Welcome {{user.userName | titlecase }}</a>
                 <!-- <pre>{{ user | json }}</pre> -->
                 <button id="button-split" type="button" dropdownToggle
                     class="btn btn-default text-white dropdown-toggle dropdown-toggle-split"
