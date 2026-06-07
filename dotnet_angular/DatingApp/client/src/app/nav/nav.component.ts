@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AccountService } from '../_services/account.service';
-import { Observable, of } from 'rxjs';
-import { User } from '../_models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -14,9 +13,9 @@ export class NavComponent {
   model: any = {};
 
 
-  constructor(public accountService: AccountService) { }
+  constructor(public accountService: AccountService, private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   // getCurrentUser() {
   //   var self = this;
@@ -30,16 +29,14 @@ export class NavComponent {
 
   login() {
     this.accountService.login(this.model).subscribe({
-      next: (res: any) => {
-        console.log(res , this.accountService.currentUser$);
-        // this.loggedIn = true;
-      },
+      next: () => this.router.navigateByUrl("/members"),
       error: (error: any) => console.log(error),
     });
   }
 
   logout() {
     this.accountService.logout();
+    this.router.navigateByUrl("/");
     // this.loggedIn = false;
   }
 }
