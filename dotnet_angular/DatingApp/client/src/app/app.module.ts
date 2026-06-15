@@ -14,7 +14,8 @@ import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './_modules/shared.module';
-
+import { PostsComponent } from './posts/posts.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { SharedModule } from './_modules/shared.module';
     MemberDetailComponent,
     ListsComponent,
     MessagesComponent,
+    PostsComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,8 +36,9 @@ import { SharedModule } from './_modules/shared.module';
     FormsModule,
     BrowserAnimationsModule, // required animations module
     SharedModule,
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
