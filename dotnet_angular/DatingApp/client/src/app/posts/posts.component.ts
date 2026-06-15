@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Post } from '../_models/post';
 import { AccountService } from '../_services/account.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-posts',
@@ -18,6 +19,7 @@ export class PostsComponent implements OnInit {
       title: new FormControl('', Validators.required),
       content: new FormControl('', Validators.required),
     });
+    this.getPost();
   }
 
   onCreatePost() {
@@ -29,13 +31,30 @@ export class PostsComponent implements OnInit {
     };
 
     this.accountService.createPost(post).subscribe({
-      next: res =>{
+      next: (res) => {
         console.log(res);
       },
-      error: err => {
+      error: (err) => {
         console.log(err);
-      }
-
+      },
     });
+  }
+
+  getPost() {
+    this.accountService
+      .getPost()
+      .pipe(
+        map((response: { [key: string]: any }) => {
+          let posts = [];
+          for (let key in response) {
+            posts.push(response[key]);
+          }
+          console.log('posts', posts);
+          return posts;
+        }),
+      )
+      .subscribe((res) => {
+        console.log(res);
+      });
   }
 }

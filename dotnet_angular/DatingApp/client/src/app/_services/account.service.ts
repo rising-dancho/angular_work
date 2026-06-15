@@ -52,6 +52,12 @@ export class AccountService {
     );
   }
 
+  getPost() {
+    return this.http.get(
+      'https://http-practice-2645f-default-rtdb.firebaseio.com/posts.json',
+    );
+  }
+
   setCurrentUser(user: User) {
     this.currentUserSource.next(user);
   }
