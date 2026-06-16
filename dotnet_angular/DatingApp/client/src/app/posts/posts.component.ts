@@ -11,6 +11,7 @@ import { map } from 'rxjs/operators';
 })
 export class PostsComponent implements OnInit {
   postForm!: FormGroup;
+  posts: any;
 
   constructor(private accountService: AccountService) {}
 
@@ -20,6 +21,25 @@ export class PostsComponent implements OnInit {
       content: new FormControl('', Validators.required),
     });
     this.getPost();
+  }
+
+  getPost() {
+    this.accountService
+      .getPost()
+      .pipe(
+        map((response: { [key: string]: any }) => {
+          let posts = [];
+          for (let key in response) {
+            posts.push({ ...response[key], key });
+          }
+          console.log('posts', posts);
+          return posts;
+        }),
+      )
+      .subscribe((res) => {
+        // console.log(res);
+        this.posts = res;
+      });
   }
 
   onCreatePost() {
@@ -32,29 +52,12 @@ export class PostsComponent implements OnInit {
 
     this.accountService.createPost(post).subscribe({
       next: (res) => {
-        console.log(res);
+        // console.log(res);
+        this.getPost();
       },
       error: (err) => {
         console.log(err);
       },
     });
-  }
-
-  getPost() {
-    this.accountService
-      .getPost()
-      .pipe(
-        map((response: { [key: string]: any }) => {
-          let posts = [];
-          for (let key in response) {
-            posts.push(response[key]);
-          }
-          console.log('posts', posts);
-          return posts;
-        }),
-      )
-      .subscribe((res) => {
-        console.log(res);
-      });
   }
 }
